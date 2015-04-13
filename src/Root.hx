@@ -45,3 +45,4 @@ class Root extends Sprite {
         Starling.juggler.add(game);
         addChild(game);
     }
+}
