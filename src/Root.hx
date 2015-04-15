@@ -7,10 +7,12 @@ import starling.textures.Texture;
 import starling.text.TextField;
 import starling.events.*;
 import flash.ui.Keyboard;
+import Game;
 
 class Root extends Sprite {
 
     public static var assets:AssetManager;
+    public var game:Game;
 
     public function new() {
         super();
@@ -33,7 +35,7 @@ class Root extends Sprite {
                             startup.removeChild(startup.loadingBitmap);
                         }
                     });
-                //start();
+                start();
             }
         });
     }
@@ -42,7 +44,6 @@ class Root extends Sprite {
         removeChildren(0,-1,true);
         removeEventListeners();
         game = new Game();
-        Starling.juggler.add(game);
         addChild(game);
     }
 }
