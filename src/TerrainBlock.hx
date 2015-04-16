@@ -18,6 +18,7 @@ class TerrainBlock extends Image{
 		this.parallax=parallax;
 		this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 	}
+	public function getVelocity(){return this.parallax*this.speed;}
 
 	public function onAddedToStage(event:Event){
 		this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
@@ -26,6 +27,10 @@ class TerrainBlock extends Image{
 
 	public function onEnterFrame(event:Event){
 		this.x -= Math.ceil(this.speed*this.parallax);
-		if(this.x < -this.texture.width) this.x = stage.stageWidth;
+		if(this.x < -this.texture.width) Recycle();
+	}
+
+	public function Recycle(){
+		this.x=Root.source.stage.stageWidth;
 	}
 }

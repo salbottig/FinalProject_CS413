@@ -3,12 +3,11 @@ APP=Game
 APP_XML=$(APP).xml
 ADL=$(FLEX_SDK)/bin/adl
 AMXMLC=$(FLEX_SDK)/bin/amxmlc
-SOURCES=src/Startup.hx src/Root.hx
+SOURCES=src/
 
 all: $(APP).swf
 
 $(APP).swf: $(SOURCES)
-	rm -rf $(APP).swf
 	haxe \
 	-cp src \
 	-cp vendor \
