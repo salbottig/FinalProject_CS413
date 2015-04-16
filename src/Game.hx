@@ -26,11 +26,11 @@ class Game extends Sprite{
 	}
 
 	public function onEnterFrame(event:Event){
-		var bounds1 = player.bounds;
-		var bounds2 = terrain.piece.bounds;
-		var bounds3 = terrain.piece2.bounds;
-		if (bounds1.intersects(bounds2)) {} 
-		else player.y += 1;
-		if (bounds1.intersects(bounds3)) player.x -= terrain.speed;
+		//var bounds1 = player.bounds;
+		//var bounds2 = terrain.piece.bounds;
+		//var bounds3 = terrain.piece2.bounds;
+		//if (bounds1.intersects(bounds2)) {} 
+		//else player.y += 1;
+		//if (bounds1.intersects(bounds3)) player.x -= terrain.speed;
 	}
 }

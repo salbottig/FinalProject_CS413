@@ -9,11 +9,9 @@ import Root;
 import TerrainBlock;
 
 class Terrain extends Sprite{
-	public var piece:TerrainBlock;
-	public var piece2:TerrainBlock;
-
+	public var pieces:Array<TerrainBlock>;
 	public var type:String = "terrain";
-
+	public var type_img:String = "test_terrain";
 	public var speed:Float = 5;
 
 	public function new(){
@@ -24,20 +22,18 @@ class Terrain extends Sprite{
 
 	public function onAddedToStage(event:Event){
 		this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-		piece = new TerrainBlock();
-		piece.parallax = .2;
-		this.addChild(piece);
+		pieces = new Array<TerrainBlock>();
 
-		piece2 = new TerrainBlock();
-		piece2.y = -50;
-		piece2.parallax = .2;
-		this.addChild(piece2);		
+		var text = Root.assets.getTexture(type_img);
+		for(i in 0...Math.ceil((Root.source.stage.stageWidth)/text.nativeWidth)){
+			pieces[i]=new TerrainBlock((Root.source.stage.stageWidth)-(i*text.nativeWidth), (Root.source.stage.stageHeight)-text.nativeHeight, speed, type_img, .2);
+			addChild(pieces[i]);
+		}
 
 		this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 	}
 
 	public function onEnterFrame(event:Event){
-		piece2.x -= Math.ceil(speed*piece.parallax);
-		if(piece2.x < -stage.stageWidth) piece2.x = stage.stageWidth;
+
 	}
 }
