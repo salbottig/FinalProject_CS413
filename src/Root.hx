@@ -11,6 +11,7 @@ import Game;
 
 class Root extends Sprite {
 
+    public static var source:Root;
     public static var assets:AssetManager;
     public var game:Game;
 
@@ -19,9 +20,12 @@ class Root extends Sprite {
       
     }
     public function initialize(startup:Startup) {
+        source = this;
         assets = new AssetManager();
         // enqueue here
         assets.enqueue("assets/loading.png");
+        assets.enqueue("assets/test_terrain.png");
+        assets.enqueue("assets/test_player.png");
         assets.loadQueue(function onProgress(ratio:Float) {
             if(ratio == 1) {
                 Starling.juggler.tween(startup.loadingBitmap,
