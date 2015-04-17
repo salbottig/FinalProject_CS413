@@ -18,7 +18,7 @@ class TerrainBlock extends Sprite{
 		this.img_loc=img_loc;
 		setHeight(rHeight);
 		this.x=x;
-		this.y=y;
+		this.y=y-75;
 		this.speed=speed;
 		this.parallax=parallax;
 		this.callBack=callBack;
