@@ -49,7 +49,10 @@ class Game extends Sprite{
 				}
 			}
 		}
-		if(!collisionY && !jumpinprogress)player.y+=1;
+		if(!collisionY && !jumpinprogress){
+			player.y+=1;
+			player.jumping = true;
+		}
 		if(collisionX)player.x-= velocity;
 	}
 

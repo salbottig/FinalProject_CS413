@@ -23,10 +23,11 @@ class Terrain extends Sprite{
 	public function onAddedToStage(event:Event){
 		this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		pieces = new Array<TerrainBlock>();
-
+		var height = 0;
 		var text = Root.assets.getTexture(type_img);
 		for(i in 0...Math.ceil((Root.source.stage.stageWidth)/text.nativeWidth)){
-			pieces[i]=new TerrainBlock((Root.source.stage.stageWidth)-(i*text.nativeWidth), (Root.source.stage.stageHeight)-text.nativeHeight*2, speed, type_img, .2, 2);
+			height = Math.round(2*Math.random());
+			pieces[i]=new TerrainBlock((Root.source.stage.stageWidth)-(i*text.nativeWidth), (Root.source.stage.stageHeight)-text.nativeHeight*height, speed, type_img, .2, height);
 			addChild(pieces[i]);
 		}
 
