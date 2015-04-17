@@ -9,16 +9,20 @@ import Root;
 class TerrainBlock extends Sprite{
 	public var parallax:Float;
 	private var speed:Float;
-	private var img_loc:String;
 	private var callBack:TerrainBlock->Void;
 	private var rHeight:Int;
 
-	public function new(x:Float, y:Float, speed:Float, img_loc:String, parallax:Float, rHeight:Int, callBack:TerrainBlock->Void){
+	public function new(x:Float, speed:Float, img_loc:String, parallax:Float, rHeight:Int, callBack:TerrainBlock->Void){
 		super();
-		this.img_loc=img_loc;
+		var tex = Root.assets.getTexture(img_loc);
+		for(i in 0...Math.ceil(Root.source.stage.stageHeight/(tex.height))){
+			var image = new Image(tex);
+			image.y=tex.height*i;
+			addChild(image);
+		}
+
 		setHeight(rHeight);
 		this.x=x;
-		this.y=y-75;
 		this.speed=speed;
 		this.parallax=parallax;
 		this.callBack=callBack;
@@ -26,16 +30,8 @@ class TerrainBlock extends Sprite{
 	}
 
 	public function setHeight(rHeight:Int){
-		this.rHeight = rHeight;
-		removeChildren();
-		for(i in 0...rHeight){
-			//Might be better to instead have an entire screen/colum of Images already instantiated so we can
-			//just show how ever many the height is. Since we are already spooling our Terrain Blocks it'd
-			// make sense opposed to removing and creating the repeated images.
-			var image = new Image(Root.assets.getTexture(img_loc));
-			image.y = i*image.height;
-			addChild(image);
-		}
+		this.y=Root.source.stage.stageHeight-(this.getChildAt(0).height*rHeight);
+		this.rHeight=rHeight;
 	}
 	public function getHeight(){return this.rHeight;}
 	public function getVelocity(){return this.parallax*this.speed;}
