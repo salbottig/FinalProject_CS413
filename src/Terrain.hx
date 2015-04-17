@@ -26,7 +26,7 @@ class Terrain extends Sprite{
 
 		var text = Root.assets.getTexture(type_img);
 		for(i in 0...Math.ceil((Root.source.stage.stageWidth)/text.nativeWidth)){
-			pieces[i]=new TerrainBlock((Root.source.stage.stageWidth)-(i*text.nativeWidth), (Root.source.stage.stageHeight)-text.nativeHeight, speed, type_img, .2);
+			pieces[i]=new TerrainBlock((Root.source.stage.stageWidth)-(i*text.nativeWidth), (Root.source.stage.stageHeight)-text.nativeHeight*2, speed, type_img, .2, 2);
 			addChild(pieces[i]);
 		}
 

@@ -43,7 +43,7 @@ class Game extends Sprite{
 					}
 					collisionY = true;
 				}
-				if(player.x < terrainBlock.x && player.y + player.height >= terrainBlock.y+5){
+				if(player.x + player.width < terrainBlock.x+5 && player.y + player.height >= terrainBlock.y+5){
 					collisionX = true;
 					velocity = terrainBlock.getVelocity();
 				}
