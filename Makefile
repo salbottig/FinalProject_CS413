@@ -11,6 +11,7 @@ $(APP).swf: $(SOURCES)
 	haxe \
 	-cp src \
 	-cp vendor \
+	-D fdb \
 	-swf-version 11.8 \
 	-swf-header 640:640:60:ffffff \
 	-main Startup \

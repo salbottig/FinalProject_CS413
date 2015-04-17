@@ -1,9 +1,11 @@
-import starling.display.*;
 import starling.animation.*;
+import starling.core.Starling;
+import starling.display.*;
 import starling.events.*;
 import starling.textures.TextureSmoothing;
 import flash.geom.*;
 import flash.media.SoundChannel;
+import flash.ui.Keyboard;
 
 
 class Game extends Sprite{
@@ -24,6 +26,7 @@ class Game extends Sprite{
 		this.addChild(player);
 
 		this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
+		this.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 	}
 
 	public function onEnterFrame(event:Event){
@@ -42,5 +45,13 @@ class Game extends Sprite{
 		}
 		if(!collisionY)player.y+=1;
 		if(collisionX)player.x-= velocity;
+	}
+
+	public function onKeyDown(event:KeyboardEvent){
+		if(event.keyCode == Keyboard.SPACE){
+			var pTween = new Tween(player, 2.0, Transitions.EASE_IN_OUT);
+			pTween.animate("y", player.y-35);
+			Starling.juggler.add(pTween);
+		}
 	}
 }

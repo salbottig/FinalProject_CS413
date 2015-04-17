@@ -17,6 +17,7 @@ class TerrainBlock extends Image{
 		this.speed=speed;
 		this.parallax=parallax;
 		this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+
 	}
 	public function getVelocity(){return this.parallax*this.speed;}
 
