@@ -39,9 +39,19 @@ class Menu extends Sprite{
 		addChild(menuBG);
 
 		play = new Image(Root.assets.getTexture("play"));
-		play.x = 300;
+		play.x = 270;
 		play.y = 320;
 		addChild(play);
+
+		credits = new Image(Root.assets.getTexture("credits"));
+		credits.x = 120;
+		credits.y = 320;
+		addChild(credits);
+
+		tutorial = new Image(Root.assets.getTexture("tutorial"));
+		tutorial.x = 420;
+		tutorial.y = 320;
+		addChild(tutorial);
 
 		play.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
             var touch = e.getTouch(play, TouchPhase.BEGAN);
