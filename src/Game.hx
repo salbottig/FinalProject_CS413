@@ -38,7 +38,9 @@ class Game extends Sprite{
 		for(terrainBlock in terrain.pieces){
 			if(pBounds.intersects(terrainBlock.bounds)){
 				if(player.y +player.height <= terrainBlock.y + 5){
-					player.jumping = false;
+					if(!jumpinprogress){
+						player.jumping = false;
+					}
 					collisionY = true;
 				}
 				if(player.x < terrainBlock.x && player.y + player.height >= terrainBlock.y+5){
@@ -56,10 +58,12 @@ class Game extends Sprite{
 			if(!player.jumping){
 				player.jumping = true;
 				jumpinprogress = true;
-				var pTween = new Tween(player, 2.0, Transitions.EASE_IN_OUT);
-				jumpinprogress = false;
-				pTween.animate("y", player.y-35);
-				Starling.juggler.add(pTween);
+				var playerY = player.y - 35;
+				Starling.juggler.tween(player, 1, {
+                                        transition: Transitions.LINEAR,
+                                        y: playerY,
+                                        onComplete: function(){jumpinprogress = false;}
+                                        });
 			}
 		}
 	}
