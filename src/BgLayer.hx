@@ -20,8 +20,8 @@ class BgLayer extends Sprite{
 
 	public function onAddedToStage(event:Event){
 		this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-		image1 = new Image(Root.assets.getTexture("loading"));
-		image2 = new Image(Root.assets.getTexture("loading"));
+		image1 = new Image(Root.assets.getTexture("Beginning_level_bg1"));
+		image2 = new Image(Root.assets.getTexture("Beginning_level_bg1"));
 
 		image1.x = 0;
 		image2.x = image2.width;
