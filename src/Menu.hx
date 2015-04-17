@@ -60,6 +60,28 @@ class Menu extends Sprite{
                    	addChild(game);
         }});  
 
+        credits.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
+            var touch = e.getTouch(credits, TouchPhase.BEGAN);
+                if (touch != null){
+                   	removeChild(credits);
+                   	addChild(tutorial);
+                   	play.x = 500;
+                   	play.y = 500;
+                   	tutorial.x = 50;
+                   	tutorial.y = 500;
+        }});  
+
+        tutorial.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
+            var touch = e.getTouch(tutorial, TouchPhase.BEGAN);
+                if (touch != null){
+                   	removeChild(tutorial);
+                   	addChild(credits);
+                   	play.x = 500;
+                   	play.y = 500;
+                   	credits.x = 50;
+                   	credits.y = 500;
+        }}); 
+
 	}
 
 }
