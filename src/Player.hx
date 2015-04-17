@@ -5,6 +5,7 @@ import flash.ui.Keyboard;
 
 class Player extends Sprite{
 	public var playerImage: Image;
+	public var jumping:Bool = false;
 
 	public function new(){
 		super();

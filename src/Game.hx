@@ -13,6 +13,7 @@ class Game extends Sprite{
 	public var background:Background;
 	public var terrain:Terrain;
 	public var player:Player;
+	public var jumpinprogress:Bool = false;
 
 	public function new(){
 		super();
@@ -36,22 +37,30 @@ class Game extends Sprite{
 		var velocity = 0.0;
 		for(terrainBlock in terrain.pieces){
 			if(pBounds.intersects(terrainBlock.bounds)){
-				if(player.y +player.height <= terrainBlock.y + 5)collisionY = true;
+				if(player.y +player.height <= terrainBlock.y + 5){
+					player.jumping = false;
+					collisionY = true;
+				}
 				if(player.x < terrainBlock.x && player.y + player.height >= terrainBlock.y+5){
 					collisionX = true;
 					velocity = terrainBlock.getVelocity();
 				}
 			}
 		}
-		if(!collisionY)player.y+=1;
+		if(!collisionY && !jumpinprogress)player.y+=1;
 		if(collisionX)player.x-= velocity;
 	}
 
 	public function onKeyDown(event:KeyboardEvent){
 		if(event.keyCode == Keyboard.SPACE){
-			var pTween = new Tween(player, 2.0, Transitions.EASE_IN_OUT);
-			pTween.animate("y", player.y-35);
-			Starling.juggler.add(pTween);
+			if(!player.jumping){
+				player.jumping = true;
+				jumpinprogress = true;
+				var pTween = new Tween(player, 2.0, Transitions.EASE_IN_OUT);
+				jumpinprogress = false;
+				pTween.animate("y", player.y-35);
+				Starling.juggler.add(pTween);
+			}
 		}
 	}
 }
