@@ -54,6 +54,9 @@ class Game extends Sprite{
 			player.jumping = true;
 		}
 		if(collisionX)player.x-= velocity;
+		else{
+			player.x += ((stage.stageWidth-player.width)/2 -player.x)/60;
+		}
 	}
 
 	public function onKeyDown(event:KeyboardEvent){
