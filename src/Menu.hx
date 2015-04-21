@@ -26,6 +26,8 @@ class Menu extends Sprite{
 	public var credits:Image;
 	public var tutorial:Image;
 
+	public var titleText:TextField;
+
 
 	public function new() {
 		super();
@@ -37,6 +39,13 @@ class Menu extends Sprite{
 
 		menuBG = new Image(Root.assets.getTexture("menu"));
 		addChild(menuBG);
+
+
+		titleText = new TextField(300,100, "Game Title", "eastwood", 55);
+		titleText.x = 175;
+		titleText.y = 10;
+		titleText.color = 0xFFFFFF;		
+		addChild(titleText);
 
 		play = new Image(Root.assets.getTexture("play_button"));
 		play.x = 270;
