@@ -7,9 +7,12 @@ import flash.media.SoundChannel;
 import Math;
 import Root;
 import TerrainBlock;
+import Obstacle;
 
 class Terrain extends Sprite{
 	public var pieces:Array<TerrainBlock>;
+	public var obstacles:Array<Obstacle>;
+	public var obstacleQ:List<String>;
 	public var type:String = "terrain";
 	public var type_img:String = "test_terrain";
 	public var speed:Float = 5;
@@ -23,21 +26,35 @@ class Terrain extends Sprite{
 	public function onAddedToStage(event:Event){
 		this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		pieces = new Array<TerrainBlock>();
+		obstacles = new Array<Obstacle>();
+		obstacleQ = new List<String>();
 		var height = 0;
 		var text = Root.assets.getTexture(type_img);
-		for(i in 0...Math.ceil((Root.source.stage.stageWidth)/text.nativeWidth)){
-			height = Math.round(2*Math.random());
+		for(i in 0...Math.ceil((Root.source.stage.stageWidth)/text.nativeWidth)+1){
+			height = 3;
 			pieces[i]=new TerrainBlock(i*text.nativeWidth, speed, type_img, .2, height, RecycleTerrainBlock);
 			addChild(pieces[i]);
+
+			obstacles[i]=new Obstacle();
+			addChild(obstacles[i]);
 		}
 	}
 
 	public function RecycleTerrainBlock(tBlock:TerrainBlock){
-		var tBlock_pIndex = pieces.indexOf(tBlock);
-		var preceedingHeight = pieces[((tBlock_pIndex==0)? pieces.length : tBlock_pIndex)-1].getHeight();
-		var thisHeight = (Math.ceil(Math.random()*(preceedingHeight))+1)%14;
-		trace("Index:"+tBlock_pIndex+" PreceedingHeight:"+preceedingHeight+" NewHeight:"+thisHeight);
-		tBlock.setHeight(thisHeight);
+		//var tBlock_pIndex = pieces.indexOf(tBlock);
+		//var preceedingHeight = pieces[((tBlock_pIndex==0)? pieces.length : tBlock_pIndex)-1].getHeight();
+		//var thisHeight = (Math.ceil(Math.random()*(preceedingHeight))+1)%14;
+		tBlock.setHeight(3);
 		tBlock.x=Root.source.stage.stageWidth;
+
+		if(obstacleQ.first() != null){
+			RecycleObstacle(tBlock);
+		}
+	}
+
+	public function RecycleObstacle(tBlock:TerrainBlock){
+		for(obstacle in obstacles){
+			if(!obstacle.active) obstacle.setActive(obstacleQ.pop(), tBlock);
+		}
 	}
 }

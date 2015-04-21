@@ -34,7 +34,7 @@ class TerrainBlock extends Sprite{
 		this.rHeight=rHeight;
 	}
 	public function getHeight(){return this.rHeight;}
-	public function getVelocity(){return this.parallax*this.speed;}
+	public function getVelocity(){return Math.ceil(this.parallax*this.speed);}
 
 	public function onAddedToStage(event:Event){
 		this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
