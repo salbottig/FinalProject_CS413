@@ -23,13 +23,24 @@ class Root extends Sprite {
     public function initialize(startup:Startup) {
         source = this;
         assets = new AssetManager();
+
         // enqueue here
+        // fonts
+        assets.enqueue("assets/fonts/eastwood.png");
+        assets.enqueue("assets/fonts/eastwood.xml");
+        assets.enqueue("assets/fonts/pixel_cowboy.png");
+        assets.enqueue("assets/fonts/pixel_cowboy.xml");
+
+        // sounds
+        assets.enqueue("assets/sounds/track1.mp3");
+
+        // art
         assets.enqueue("assets/loading.png");
         assets.enqueue("assets/test_terrain.png");
         assets.enqueue("assets/test_player.png");
-        assets.enqueue("assets/play.png");
-        assets.enqueue("assets/tutorial.png");
-        assets.enqueue("assets/credits.png");
+        assets.enqueue("assets/play_button.png");
+        assets.enqueue("assets/tutorial_button.png");
+        assets.enqueue("assets/credits_button.png");
         assets.enqueue("assets/menu.png");
         assets.enqueue("assets/Beginning_level_bg1.png");
         assets.enqueue("assets/Beginning_level_bg2.png");

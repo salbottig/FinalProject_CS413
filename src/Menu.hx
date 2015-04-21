@@ -38,19 +38,19 @@ class Menu extends Sprite{
 		menuBG = new Image(Root.assets.getTexture("menu"));
 		addChild(menuBG);
 
-		play = new Image(Root.assets.getTexture("play"));
+		play = new Image(Root.assets.getTexture("play_button"));
 		play.x = 270;
-		play.y = 320;
+		play.y = 420;
 		addChild(play);
 
-		credits = new Image(Root.assets.getTexture("credits"));
+		credits = new Image(Root.assets.getTexture("credits_button"));
 		credits.x = 120;
-		credits.y = 320;
+		credits.y = 420;
 		addChild(credits);
 
-		tutorial = new Image(Root.assets.getTexture("tutorial"));
+		tutorial = new Image(Root.assets.getTexture("tutorial_button"));
 		tutorial.x = 420;
-		tutorial.y = 320;
+		tutorial.y = 420;
 		addChild(tutorial);
 
 		play.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
