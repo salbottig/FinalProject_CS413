@@ -16,6 +16,8 @@ class Player extends Sprite{
 	public function onAddedToStage(event:Event){
 		this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		playerImage = new Image(Root.assets.getTexture("hilbilly1"));
+		playerImage.scaleX=.64;
+		playerImage.scaleY=.64;
 		addChild(playerImage);
 	}
 }

@@ -14,6 +14,7 @@ class Game extends Sprite{
 	public var terrain:Terrain;
 	public var player:Player;
 	public var jumpinprogress:Bool = false;
+	public var overlay:Overlay;
 
 	public function new(){
 		super();
@@ -25,6 +26,8 @@ class Game extends Sprite{
 		player = new Player();
 		player.x = Root.source.stage.stageWidth/2;
 		this.addChild(player);
+		overlay = new Overlay();
+		this.addChild(overlay);
 
 		this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		this.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
