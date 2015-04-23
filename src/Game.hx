@@ -67,8 +67,8 @@ class Game extends Sprite{
 			if(!player.jumping){
 				player.jumping = true;
 				jumpinprogress = true;
-				var playerY = player.y - 35;
-				Starling.juggler.tween(player, 1, {
+				var playerY = player.y - 64;
+				Starling.juggler.tween(player, .5, {
                                         transition: Transitions.LINEAR,
                                         y: playerY,
                                         onComplete: function(){jumpinprogress = false;}
