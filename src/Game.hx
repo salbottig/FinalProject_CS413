@@ -39,6 +39,10 @@ class Game extends Sprite{
 		var collisionY = false;
 		var collisionX = false;
 		var velocity = 0.0;
+		if (overlay.health.isDead()){
+			//GAMEOVER
+			trace("Dead");
+		}
 		for(terrainBlock in terrain.pieces){
 			if(pBounds.intersects(terrainBlock.bounds)){
 				if(player.y +player.height <= terrainBlock.y + 5){
@@ -55,16 +59,8 @@ class Game extends Sprite{
 		}
 		for(obstacle in terrain.obstacles){
 			if(pBounds.intersects(obstacle.bounds)){
-				if(player.y +player.height <= obstacle.y + 5){
-					if(!jumpinprogress){
-						player.jumping = false;
-					}
-					collisionY = true;
-				}
-				if(player.x + player.width < obstacle.x+5 && player.y + player.height >= obstacle.y+5){
-					collisionX = true;
-					velocity = obstacle.getVelocity();
-				}
+				overlay.health.loseHealth();
+				obstacle.active=false;
 			}
 		}
 		if(!collisionY && !jumpinprogress){

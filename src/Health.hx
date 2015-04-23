@@ -36,14 +36,22 @@ class Health extends Sprite{
 		for(i in 0...health){
 			healthBar[i].texture = Root.assets.getTexture("hillbillypoint");
 		}
-		for(i in health...healthBar.length){
-			healthBar[i].texture = Root.assets.getTexture("empty");
+		if(health >=  0){
+			for(i in health...healthBar.length){
+				healthBar[i].texture = Root.assets.getTexture("empty");
+			}	
 		}
+		else{
+			for(i in 0...healthBar.length){
+				healthBar[i].texture = Root.assets.getTexture("empty");
+			}
+		}
+		
 	}
 
 	public function loseHealth(){
 		//trace("lostHealth"); //debugging
-		if(health > 0) health--;
+		if(health >= 0) health--;
 		if(isDead()){
 			update();
 			//death animation
