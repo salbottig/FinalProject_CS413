@@ -18,9 +18,10 @@ class Obstacle extends Image{
 	}
 
 	public function getType(){return this.type;}
+	public function getVelocity(){return this.velocity;}
 
-	public function setActive(type:String, sTBlock:TerrainBlock, img_loc:String=null){
-		this.texture = Root.assets.getTexture( (img_loc==null)?type:img_loc );
+	public function setActive(type:String, sTBlock:TerrainBlock, img_loc:String=''){
+		this.texture = Root.assets.getTexture( (img_loc!='')?img_loc:type );
 		this.active = true;
 		this.type = type;
 		this.x = sTBlock.x;

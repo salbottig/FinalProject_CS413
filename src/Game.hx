@@ -53,13 +53,39 @@ class Game extends Sprite{
 				}
 			}
 		}
+		for(obstacle in terrain.obstacles){
+			if(pBounds.intersects(obstacle.bounds)){
+				if(player.y +player.height <= obstacle.y + 5){
+					if(!jumpinprogress){
+						player.jumping = false;
+					}
+					collisionY = true;
+				}
+				if(player.x + player.width < obstacle.x+5 && player.y + player.height >= obstacle.y+5){
+					collisionX = true;
+					velocity = obstacle.getVelocity();
+				}
+			}
+		}
 		if(!collisionY && !jumpinprogress){
-			player.y+=3;
+			player.y+=2;
 			player.jumping = true;
 		}
 		if(collisionX)player.x-= velocity;
 		else{
 			player.x += ((stage.stageWidth-player.width)/2 -player.x)/60;
+		}
+
+		var t = Math.random()*100;
+		if(t<55 && t>45){ 
+			var t = Math.ceil(Math.random()*5);
+			switch(t){
+				case 1: terrain.obstacleQ.add("hay");
+				case 2: terrain.obstacleQ.add("stump");
+				case 3: terrain.obstacleQ.add("tire");
+				case 4: terrain.obstacleQ.add("squirrel");
+				default: terrain.obstacleQ.add("rock");
+			}
 		}
 	}
 
@@ -68,7 +94,7 @@ class Game extends Sprite{
 			if(!player.jumping){
 				player.jumping = true;
 				jumpinprogress = true;
-				var playerY = player.y - 90;
+				var playerY = player.y - 60;
 				Starling.juggler.tween(player, .5, {
                                         transition: Transitions.LINEAR,
                                         y: playerY,
