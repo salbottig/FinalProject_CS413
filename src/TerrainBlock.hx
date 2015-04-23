@@ -10,9 +10,9 @@ class TerrainBlock extends Sprite{
 	public var parallax:Float;
 	private var speed:Float;
 	private var callBack:TerrainBlock->Void;
-	private var rHeight:Int;
+	private var rHeight:Float;
 
-	public function new(x:Float, speed:Float, img_loc:String, parallax:Float, rHeight:Int, callBack:TerrainBlock->Void){
+	public function new(x:Float, speed:Float, img_loc:String, parallax:Float, rHeight:Float, callBack:TerrainBlock->Void){
 		super();
 		var tex = Root.assets.getTexture(img_loc);
 		for(i in 0...Math.ceil(Root.source.stage.stageHeight/(tex.height))){
@@ -29,7 +29,7 @@ class TerrainBlock extends Sprite{
 		this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 	}
 
-	public function setHeight(rHeight:Int){
+	public function setHeight(rHeight:Float){
 		this.y=Root.source.stage.stageHeight-(this.getChildAt(0).height*rHeight);
 		this.rHeight=rHeight;
 	}

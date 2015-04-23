@@ -28,10 +28,10 @@ class Terrain extends Sprite{
 		pieces = new Array<TerrainBlock>();
 		obstacles = new Array<Obstacle>();
 		obstacleQ = new List<String>();
-		var height = 0;
+		var height:Float = 0;
 		var text = Root.assets.getTexture(type_img);
 		for(i in 0...Math.ceil((Root.source.stage.stageWidth)/text.nativeWidth)+1){
-			height = 3;
+			height = 1.5;
 			pieces[i]=new TerrainBlock(i*text.nativeWidth, speed, type_img, .2, height, RecycleTerrainBlock);
 			addChild(pieces[i]);
 
@@ -44,17 +44,17 @@ class Terrain extends Sprite{
 		//var tBlock_pIndex = pieces.indexOf(tBlock);
 		//var preceedingHeight = pieces[((tBlock_pIndex==0)? pieces.length : tBlock_pIndex)-1].getHeight();
 		//var thisHeight = (Math.ceil(Math.random()*(preceedingHeight))+1)%14;
-		tBlock.setHeight(3);
+		tBlock.setHeight(1.5);
 		tBlock.x=Root.source.stage.stageWidth;
 
 		if(obstacleQ.first() != null){
-			RecycleObstacle(tBlock);
+			RecycleObstacle(obstacleQ.pop(), tBlock);
 		}
 	}
 
-	public function RecycleObstacle(tBlock:TerrainBlock){
+	public function RecycleObstacle(type:String, tBlock:TerrainBlock){
 		for(obstacle in obstacles){
-			if(!obstacle.active) obstacle.setActive(obstacleQ.pop(), tBlock);
+			if(!obstacle.active) obstacle.setActive(type, tBlock);
 		}
 	}
 }
