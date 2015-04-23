@@ -15,17 +15,20 @@ class Health extends Sprite{
 		healthBar = [];
 		for(i in 0...health){
 			var image = new Image(Root.assets.getTexture("hillbillypoint"));
-			image.scaleX = .5;
-			image.scaleY = .5;
 			healthBar.push(image);
 		}
-		healthText = new TextField(64, 16, "Hillbillies: ");
+		healthText = new TextField(64, 32, "Hillbillies: ");
 		addChild(healthText);
 		for(i in 0...healthBar.length){
-			healthBar[i].x = 64 + i*16;
+			healthBar[i].x = 64 + i*32;
 			addChild(healthBar[i]);
 		}
 		//addEventListener(KeyboardEvent.KEY_DOWN, keyDown); //debugging
+	}
+
+	public function start(){
+		health = 0;
+		update();
 	}
 
 	public function update(){
@@ -34,7 +37,7 @@ class Health extends Sprite{
 			healthBar[i].texture = Root.assets.getTexture("hillbillypoint");
 		}
 		for(i in health...healthBar.length){
-			healthBar[i].texture = Root.assets.getTexture("hillbillypoint");
+			healthBar[i].texture = Root.assets.getTexture("empty");
 		}
 	}
 
@@ -51,14 +54,14 @@ class Health extends Sprite{
 	}
 
 	public function addHealth(){
-		if (health < 3) health++;
+		if (health < 5) health++;
 		//trace(health);
 		update();
 		
 	}
 
 	public function isDead():Bool{
-		if (health <= 0){
+		if (health < 0){
 			return true;
 		}
 		else{

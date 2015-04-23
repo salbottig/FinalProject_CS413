@@ -34,6 +34,7 @@ class Game extends Sprite{
 	}
 
 	public function onEnterFrame(event:Event){
+		overlay.score.addPoints(1*(1+overlay.health.health));
 		var pBounds = player.bounds;
 		var collisionY = false;
 		var collisionX = false;
@@ -53,7 +54,7 @@ class Game extends Sprite{
 			}
 		}
 		if(!collisionY && !jumpinprogress){
-			player.y+=1;
+			player.y+=3;
 			player.jumping = true;
 		}
 		if(collisionX)player.x-= velocity;
@@ -67,8 +68,8 @@ class Game extends Sprite{
 			if(!player.jumping){
 				player.jumping = true;
 				jumpinprogress = true;
-				var playerY = player.y - 35;
-				Starling.juggler.tween(player, 1, {
+				var playerY = player.y - 90;
+				Starling.juggler.tween(player, .5, {
                                         transition: Transitions.LINEAR,
                                         y: playerY,
                                         onComplete: function(){jumpinprogress = false;}
