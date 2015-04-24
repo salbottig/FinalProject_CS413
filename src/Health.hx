@@ -33,8 +33,9 @@ class Health extends Sprite{
 		for(i in 0...health){
 			healthBar[i].texture = Root.assets.getTexture("hillbillypoint");
 		}
-		for(i in health...healthBar.length){
-			healthBar[i].texture = Root.assets.getTexture("hillbillypoint");
+		for(i in 0...healthBar.length){
+			if(i<health) healthBar[i].visible = true;
+			else healthBar[i].visible = false;
 		}
 	}
 

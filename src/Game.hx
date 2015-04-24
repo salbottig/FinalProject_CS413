@@ -54,15 +54,23 @@ class Game extends Sprite{
 		}
 		for(obstacle in terrain.obstacles){
 			if(pBounds.intersects(obstacle.bounds)){
-				if(player.y +player.height <= obstacle.y + 5){
-					if(!jumpinprogress){
-						player.jumping = false;
-					}
-					collisionY = true;
+				if(obstacle.getType()=='hilbilly1'){
+					obstacle.setNotActive();
+					this.overlay.health.addHealth();
 				}
-				if(player.x + player.width < obstacle.x+5 && player.y + player.height >= obstacle.y+5){
-					collisionX = true;
-					velocity = obstacle.getVelocity();
+				else{
+					this.overlay.health.loseHealth();
+					// losing health needs tweaking so we don't instantly die, check to see how long ago our last collision was? if same object?
+					if(player.y +player.height <= obstacle.y + 5){
+						if(!jumpinprogress){
+							player.jumping = false;
+						}
+						collisionY = true;
+					}
+					if(player.x + player.width < obstacle.x+5 && player.y + player.height >= obstacle.y+5){
+						collisionX = true;
+						velocity = obstacle.getVelocity();
+					}
 				}
 			}
 		}
@@ -71,18 +79,19 @@ class Game extends Sprite{
 			player.jumping = true;
 		}
 		if(collisionX)player.x-= velocity;
-		else{
+		else if(!player.jumping){
 			player.x += ((stage.stageWidth-player.width)/2 -player.x)/60;
 		}
 
 		var t = Math.random()*100;
 		if(t<55 && t>45){ 
-			var t = Math.ceil(Math.random()*5);
+			var t = Math.ceil(Math.random()*6);
 			switch(t){
 				case 1: terrain.obstacleQ.add("hay");
 				case 2: terrain.obstacleQ.add("stump");
 				case 3: terrain.obstacleQ.add("tire");
 				case 4: terrain.obstacleQ.add("squirrel");
+				case 5: terrain.obstacleQ.add("hilbilly1");
 				default: terrain.obstacleQ.add("rock");
 			}
 		}
@@ -93,10 +102,12 @@ class Game extends Sprite{
 			if(!player.jumping){
 				player.jumping = true;
 				jumpinprogress = true;
-				var playerY = player.y - 64;
+				var playerY = player.y - 112;
+				var playerX = player.x + 64;
 				Starling.juggler.tween(player, .75, {
                                         transition: Transitions.EASE_OUT,
                                         y: playerY,
+                                        x: playerX,
                                         onComplete: function(){jumpinprogress = false;}
                                         });
 			}

@@ -22,6 +22,7 @@ class Obstacle extends Image{
 
 	public function setActive(type:String, sTBlock:TerrainBlock, img_loc:String=''){
 		this.texture = Root.assets.getTexture( (img_loc!='')?img_loc:type );
+		this.readjustSize();
 		this.active = true;
 		this.type = type;
 		this.x = sTBlock.x;
