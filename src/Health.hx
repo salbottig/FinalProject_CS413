@@ -29,7 +29,7 @@ class Health extends Sprite{
 	}
 
 	public function start(){
-		health = 0;
+		health = 1;
 		update();
 	}
 
