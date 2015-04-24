@@ -8,7 +8,7 @@ import Root;
 
 
 class Obstacle extends Image{
-	public var active:Bool=false;
+	private var active:Bool=false;
 	private var type:String;
 	private var velocity:Int;
 
@@ -17,6 +17,7 @@ class Obstacle extends Image{
 		this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 	}
 
+	public function getActive(){return this.active;}
 	public function getType(){return this.type;}
 	public function getVelocity(){return this.velocity;}
 

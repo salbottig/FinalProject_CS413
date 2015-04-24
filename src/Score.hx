@@ -12,7 +12,7 @@ class Score extends Sprite{
 	public function new(){
 		super();
 		score = 0;
-		scoreText = new TextField(128, 16, "Score: " + score);
+		scoreText = new TextField(128, 32, "Score: " + score);
 		scoreText.hAlign = HAlign.LEFT;
 		addChild(scoreText);
 		//addEventListener(KeyboardEvent.KEY_DOWN, keyDown); //debugging

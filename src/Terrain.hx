@@ -54,7 +54,7 @@ class Terrain extends Sprite{
 
 	public function RecycleObstacle(type:String, tBlock:TerrainBlock){
 		for(obstacle in obstacles){
-			if(!obstacle.active) obstacle.setActive(type, tBlock);
+			if(!obstacle.getActive()) obstacle.setActive(type, tBlock);
 		}
 	}
 }

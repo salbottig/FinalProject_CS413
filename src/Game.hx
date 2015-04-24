@@ -34,10 +34,15 @@ class Game extends Sprite{
 	}
 
 	public function onEnterFrame(event:Event){
+		overlay.score.addPoints(1*(1+overlay.health.health));
 		var pBounds = player.bounds;
 		var collisionY = false;
 		var collisionX = false;
 		var velocity = 0.0;
+		if (overlay.health.isDead()){
+			//GAMEOVER
+			trace("Dead");
+		}
 		for(terrainBlock in terrain.pieces){
 			if(pBounds.intersects(terrainBlock.bounds)){
 				if(player.y +player.height <= terrainBlock.y + 5){
@@ -75,7 +80,7 @@ class Game extends Sprite{
 			}
 		}
 		if(!collisionY && !jumpinprogress){
-			player.y+=1;
+			player.y+=2;
 			player.jumping = true;
 		}
 		if(collisionX)player.x-= velocity;

@@ -13,5 +13,6 @@ class Overlay extends Sprite{
 		score.x = flash.Lib.current.stage.stageWidth - score.width;
 		addChild(health);
 		addChild(score);
+		health.start();
 	}
 }

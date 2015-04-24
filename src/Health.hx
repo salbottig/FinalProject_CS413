@@ -28,11 +28,13 @@ class Health extends Sprite{
 		//addEventListener(KeyboardEvent.KEY_DOWN, keyDown); //debugging
 	}
 
+	public function start(){
+		health = 0;
+		update();
+	}
+
 	public function update(){
 		//trace("update"); //debugging
-		for(i in 0...health){
-			healthBar[i].texture = Root.assets.getTexture("hillbillypoint");
-		}
 		for(i in 0...healthBar.length){
 			if(i<health) healthBar[i].visible = true;
 			else healthBar[i].visible = false;
