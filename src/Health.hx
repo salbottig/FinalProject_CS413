@@ -15,14 +15,21 @@ class Health extends Sprite{
 		healthBar = [];
 		for(i in 0...health){
 			var image = new Image(Root.assets.getTexture("hillbillypoint"));
-			image.scaleX = .5;
-			image.scaleY = .5;
+			image.scaleX = .8;
+			image.scaleY = .8;
 			healthBar.push(image);
 		}
-		healthText = new TextField(64, 16, "Hillbillies: ");
+		healthText = new TextField(200,100, "Hillbillies:", "eastwood", 25);
+		// healthText = new TextField(64, 16, "Hillbillies: ", "eastwood", 16);
+		healthText.color = 0x000000;
+		healthText.hAlign = HAlign.LEFT;
+		healthText.x = 9;
+		healthText.vAlign = VAlign.TOP;
+		healthText.y = 5;
 		addChild(healthText);
 		for(i in 0...healthBar.length){
-			healthBar[i].x = 64 + i*16;
+			healthBar[i].x = 150 + i*16;
+			healthBar[i].y = 5;
 			addChild(healthBar[i]);
 		}
 		//addEventListener(KeyboardEvent.KEY_DOWN, keyDown); //debugging
