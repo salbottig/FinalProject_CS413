@@ -29,8 +29,8 @@ class BgLayer extends Sprite{
 		image2 = new Image(Root.assets.getTexture("Beginning_level_bg2"));
 
 		//Placeholder
-		image3 = new Image(Root.assets.getTexture("Grass_Ground_proto"));
-		image4 = new Image(Root.assets.getTexture("Grass_Ground_proto"));
+		image3 = new Image(Root.assets.getTexture("MidGround_Beg_1"));
+		image4 = new Image(Root.assets.getTexture("MidGround_Beg_1"));
 
 		image3.y = 490;
 		image4.x = image4.width;
