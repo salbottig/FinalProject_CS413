@@ -9,7 +9,6 @@ import Root;
 class Score extends Sprite{
 	public var score:Int;
 	public var scoreText:TextField;
-	public var tutorialText:TextField;
 	public function new(){
 		super();
 		score = 0;
