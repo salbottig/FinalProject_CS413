@@ -26,6 +26,7 @@ class TerrainBlock extends Sprite{
 		this.speed=speed;
 		this.parallax=parallax;
 		this.callBack=callBack;
+		this.visible = false;
 		this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 	}
 
