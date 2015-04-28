@@ -50,8 +50,8 @@ class Root extends Sprite {
         assets.enqueue("assets/menu.png");
         assets.enqueue("assets/Beginning_level_bg1.png");
         assets.enqueue("assets/Beginning_level_bg2.png");
-        assets.enqueue("assets/fence_ground.png");
-        assets.enqueue("assets/pond_reeds.png");
+        assets.enqueue("assets/fence_pixel.png");
+        assets.enqueue("assets/pond_pixel.png");
         // assets.enqueue("assets/Grass_Ground_proto.png");
         assets.enqueue("assets/MidGround_Beg_1.png");
         assets.enqueue("assets/hilbilly1.png");
