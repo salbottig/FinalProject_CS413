@@ -37,14 +37,14 @@ class BgLayer extends Sprite{
 		image6 = new Image(Root.assets.getTexture("MidGround_Beg_1"));
 
 		image3.y = 0;
-		image5.x = image5.width;
+		image5.x = image5.width-1;
 		image4.y = 0;
-		image6.x = image5.width + image6.width;
+		image6.x = image5.width + image6.width -2;
 		//end Placeholder
 
 		image1.x = 0;
-		image2.x = image2.width;
-		image3.x = image2.width+image3.width;
+		image2.x = image2.width-1;
+		image3.x = image2.width+image3.width-2;
 
 		addChild(image1);
 		addChild(image2);
