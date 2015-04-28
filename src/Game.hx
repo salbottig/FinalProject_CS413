@@ -55,11 +55,11 @@ class Game extends Sprite{
 		var collisionY = false;
 		var collisionX = false;
 		var velocity = 0.0;
-<<<<<<< HEAD
+
 		var menuButton:Image;
 		var gameOverText:TextField;
 
-=======
+
 		background.speedBack = (10*overlay.health.health);
 		for (obstacle in terrain.obstacles){
 			obstacle.setSpeed(background.speedBack*background.layer.parallax);
@@ -72,7 +72,7 @@ class Game extends Sprite{
 		for (obstacle in terrain.obstacles){
 			obstacle.setSpeed(foreground.speed*foreground.layer.parallax);
 		}
->>>>>>> origin/master
+
 		if (overlay.health.isDead()){
 			//GAMEOVER
 			//trace("Dead");
@@ -100,6 +100,7 @@ class Game extends Sprite{
                 		this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
                 		removeChild(menuButton);
                 		removeChild(background);
+                		removeChild(foreground);
                 		removeChild(gameOverText);
                 		removeChild(overlay);
                    		menu = new Menu();
