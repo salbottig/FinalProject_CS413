@@ -15,7 +15,7 @@ class Terrain extends Sprite{
 	public var obstacleQ:List<String>;
 	public var type:String = "terrain";
 	public var type_img:String = "test_terrain";
-	public var speed:Float = 5;
+	public var speed:Float = 10;
 	private var buffer=0;
 
 	public function new(){

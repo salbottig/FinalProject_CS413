@@ -30,6 +30,6 @@ class Background extends Sprite{
 
 	public function onEnterFrame(event:Event){
 		layer.x -= Math.ceil(speed*layer.parallax);
-		if(layer.x < -stage.stageWidth) layer.x = 0;
+		if(layer.x < -2*stage.stageWidth) layer.x = 0;
 	}
 }

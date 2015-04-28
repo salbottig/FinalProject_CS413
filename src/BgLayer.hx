@@ -10,10 +10,12 @@ class BgLayer extends Sprite{
 
 	public var image1:Image;
 	public var image2:Image;
+	public var image3:Image;
 
 	//Placeholders
-	public var image3:Image;
 	public var image4:Image;
+	public var image5:Image;
+	public var image6:Image;
 	//end Placeholder
 
 	public var parallax:Float;
@@ -27,25 +29,30 @@ class BgLayer extends Sprite{
 		this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		image1 = new Image(Root.assets.getTexture("Beginning_level_bg1"));
 		image2 = new Image(Root.assets.getTexture("Beginning_level_bg2"));
+		image3 = new Image(Root.assets.getTexture("Beginning_level_bg1"));
 
 		//Placeholder
-		image3 = new Image(Root.assets.getTexture("MidGround_Beg_1"));
 		image4 = new Image(Root.assets.getTexture("MidGround_Beg_1"));
+		image5 = new Image(Root.assets.getTexture("MidGround_Beg_1"));
+		image6 = new Image(Root.assets.getTexture("MidGround_Beg_1"));
 
 		image3.y = 0;
-		image4.x = image4.width;
+		image5.x = image5.width;
 		image4.y = 0;
+		image6.x = image5.width + image6.width;
 		//end Placeholder
 
 		image1.x = 0;
 		image2.x = image2.width;
+		image3.x = image2.width+image3.width;
 
 		addChild(image1);
 		addChild(image2);
-
-		//Placeholders
 		addChild(image3);
+		//Placeholders
 		addChild(image4);
+		addChild(image5);
+		addChild(image6);
 		//end Placeholder
 	}
 }
