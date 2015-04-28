@@ -7,6 +7,8 @@ import starling.textures.Texture;
 import starling.text.TextField;
 import starling.events.*;
 import flash.ui.Keyboard;
+import flash.media.SoundChannel;
+
 import Game;
 
 class Root extends Sprite {
@@ -15,6 +17,9 @@ class Root extends Sprite {
     public static var assets:AssetManager;
     public var game:Game;
     public var menu:Menu;
+
+    var musicChannel:SoundChannel;  
+
 
     public function new() {
         super();
@@ -55,6 +60,7 @@ class Root extends Sprite {
         assets.enqueue("assets/hay.png");
         assets.loadQueue(function onProgress(ratio:Float) {
             if(ratio == 1) {
+                musicChannel = assets.playSound("track1");
                 Starling.juggler.tween(startup.loadingBitmap,
                     1.0,
                     {
