@@ -14,6 +14,7 @@ class Game extends Sprite{
 	public var background:Background;
 	public var terrain:Terrain;
 	public var player:Player;
+	public var foreground:Foreground;
 	public var jumpinprogress:Bool = false;
 	public var overlay:Overlay;
 	public var menu:Menu;
@@ -21,7 +22,8 @@ class Game extends Sprite{
 	public function new(){
 		super();
 		background = new Background();
-		background.speed = 10;
+		background.speedBack = .1;
+		background.speedMid = 1;
 		this.addChild(background);
 		terrain = new Terrain();
 		this.addChild(terrain);
@@ -38,6 +40,8 @@ class Game extends Sprite{
 		player.x = (Root.source.stage.stageWidth-player.width)/2;
 		player.y = 400;
 		this.addChild(player);
+		foreground = new Foreground();
+		this.addChild(foreground);
 		overlay = new Overlay();
 		this.addChild(overlay);
 
@@ -51,9 +55,24 @@ class Game extends Sprite{
 		var collisionY = false;
 		var collisionX = false;
 		var velocity = 0.0;
+<<<<<<< HEAD
 		var menuButton:Image;
 		var gameOverText:TextField;
 
+=======
+		background.speedBack = (10*overlay.health.health);
+		for (obstacle in terrain.obstacles){
+			obstacle.setSpeed(background.speedBack*background.layer.parallax);
+		}
+		background.speedMid = (10*overlay.health.health);
+		for (obstacle in terrain.obstacles){
+			obstacle.setSpeed(background.speedMid*background.midLayer.parallax);
+		}
+		foreground.speed = (10*overlay.health.health);
+		for (obstacle in terrain.obstacles){
+			obstacle.setSpeed(foreground.speed*foreground.layer.parallax);
+		}
+>>>>>>> origin/master
 		if (overlay.health.isDead()){
 			//GAMEOVER
 			//trace("Dead");
