@@ -20,7 +20,8 @@ class Game extends Sprite{
 	public function new(){
 		super();
 		background = new Background();
-		background.speed = 10;
+		background.speedBack = .1;
+		background.speedMid = 1;
 		this.addChild(background);
 		terrain = new Terrain();
 		this.addChild(terrain);

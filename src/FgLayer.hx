@@ -25,8 +25,8 @@ class FgLayer extends Sprite{
 
 	public function onAddedToStage(event:Event){
 		this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-		image1 = new Image(Root.assets.getTexture("fence_pixel"));
-		image2 = new Image(Root.assets.getTexture("fence_pixel"));
+		image1 = new Image(Root.assets.getTexture("fence_ground"));
+		image2 = new Image(Root.assets.getTexture("fence_ground"));
 
 		//Placeholder
 		// image3 = new Image(Root.assets.getTexture("MidGround_Beg_1"));
