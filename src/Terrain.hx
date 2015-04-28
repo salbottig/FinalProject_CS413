@@ -16,6 +16,7 @@ class Terrain extends Sprite{
 	public var type:String = "terrain";
 	public var type_img:String = "test_terrain";
 	public var speed:Float = 5;
+	private var buffer=0;
 
 	public function new(){
 		super();
@@ -38,6 +39,7 @@ class Terrain extends Sprite{
 			obstacles[i]=new Obstacle();
 			addChild(obstacles[i]);
 		}
+
 	}
 
 	public function RecycleTerrainBlock(tBlock:TerrainBlock){
@@ -47,15 +49,15 @@ class Terrain extends Sprite{
 		tBlock.setHeight(1.5);
 		tBlock.x=Root.source.stage.stageWidth;
 
-		if(obstacleQ.first() != null){
+		if(buffer==0 && obstacleQ.first() != null){
 			RecycleObstacle(obstacleQ.pop(), tBlock);
 		}
+		buffer=(buffer==2)?0:buffer+1;
 	}
 
 	public function RecycleObstacle(type:String, tBlock:TerrainBlock){
 		for(obstacle in obstacles){
-			if(!obstacle.getActive()) obstacle.setActive(type, tBlock);
-			break;
+			if(!obstacle.getActive()){obstacle.setActive(type, tBlock);break;}
 		}
 	}
 }

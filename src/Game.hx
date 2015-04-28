@@ -69,7 +69,6 @@ class Game extends Sprite{
 		}
 		for(obstacle in terrain.obstacles){
 			if(pBounds.intersects(obstacle.bounds)){
-				trace(obstacle.bounds);
 				if(obstacle.getType()=='hilbilly1' && obstacle.getActive()){
 					obstacle.setNotActive();
 					this.overlay.health.addHealth();
@@ -90,8 +89,8 @@ class Game extends Sprite{
 			player.x += ((stage.stageWidth-player.width)/2 -player.x)/60;
 		}
 
-		var t = Math.random()*100;
-		if(t<55 && t>45){ 
+		var t = Math.floor(Math.random()*((900-Math.floor(this.overlay.score.score/1000))+100) );
+		if(t==50){ 
 			var t = Math.ceil(Math.random()*6);
 			switch(t){
 				case 1: terrain.obstacleQ.add("hay");
@@ -109,10 +108,10 @@ class Game extends Sprite{
 			if(!player.jumping){
 				player.jumping = true;
 				jumpinprogress = true;
-				var playerY = player.y - 180;
-				var playerX = player.x;
+				var playerY = player.y - 190;
+				var playerX = player.x + 15;
 				Starling.juggler.tween(player, 1.5,	 {
-                                        transition: Transitions.EASE_OUT,
+                                        transition: Transitions.LINEAR,
                                         y: playerY,
                                         x: playerX,
                                         onComplete: function(){jumpinprogress = false;}

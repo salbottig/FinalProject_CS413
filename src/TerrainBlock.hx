@@ -18,6 +18,7 @@ class TerrainBlock extends Sprite{
 		for(i in 0...Math.ceil(Root.source.stage.stageHeight/(tex.height))){
 			var image = new Image(tex);
 			image.y=tex.height*i;
+			image.color=Math.floor(Math.random()*255*255*255);
 			addChild(image);
 		}
 
@@ -26,7 +27,7 @@ class TerrainBlock extends Sprite{
 		this.speed=speed;
 		this.parallax=parallax;
 		this.callBack=callBack;
-		this.visible = false;
+		//this.visible = false;
 		this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 	}
 
