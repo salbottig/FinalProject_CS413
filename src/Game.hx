@@ -91,7 +91,7 @@ class Game extends Sprite{
 
 			menuButton = new Image(Root.assets.getTexture("menu_button"));
 			menuButton.x = 420;
-			menuButton.y = 460;
+			menuButton.y = 350;
 			addChild(menuButton);
 
 			menuButton.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
