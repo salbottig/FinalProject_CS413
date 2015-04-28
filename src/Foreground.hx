@@ -6,12 +6,12 @@ import flash.geom.*;
 import flash.media.SoundChannel;
 import Math;
 import Root;
-import BgLayer;
+import FgLayer;
 
 class Foreground extends Sprite{
 	public var layer:FgLayer;
 
-	public var speed:Float = 0;
+	public var speed:Float = 3;
 
 	public function new(){
 		super();
@@ -22,7 +22,7 @@ class Foreground extends Sprite{
 	public function onAddedToStage(event:Event){
 		this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		layer = new FgLayer();
-		layer.parallax = 2;
+		layer.parallax = 1;
 		this.addChild(layer);
 
 		this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
