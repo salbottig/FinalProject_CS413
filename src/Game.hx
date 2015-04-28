@@ -13,6 +13,7 @@ class Game extends Sprite{
 	public var background:Background;
 	public var terrain:Terrain;
 	public var player:Player;
+	public var foreground:Foreground;
 	public var jumpinprogress:Bool = false;
 	public var overlay:Overlay;
 
@@ -36,6 +37,8 @@ class Game extends Sprite{
 		player.x = (Root.source.stage.stageWidth-player.width)/2;
 		player.y = 400;
 		this.addChild(player);
+		foreground = new Foreground();
+		this.addChild(foreground);
 		overlay = new Overlay();
 		this.addChild(overlay);
 
