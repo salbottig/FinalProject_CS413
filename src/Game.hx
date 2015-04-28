@@ -23,6 +23,15 @@ class Game extends Sprite{
 		this.addChild(background);
 		terrain = new Terrain();
 		this.addChild(terrain);
+
+		// Chris is testing backgrounds here
+		// var layers:Array<BackgroundLayer> = new Array();
+		//higher int, faster scrolling
+		// layers.push(new BackgroundLayer(assets.getTexture("pond_reeds"), 2, false));
+		// layers.push(new BackgroundLayer(assets.getTexture("fence_ground"), 5, false));
+		// var fieldBG = new LevelBackground(layers);
+		// addChild(fieldBG);
+
 		player = new Player();
 		player.x = (Root.source.stage.stageWidth-player.width)/2;
 		player.y = 400;

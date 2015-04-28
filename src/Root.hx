@@ -17,7 +17,6 @@ class Root extends Sprite {
     public static var assets:AssetManager;
     public var game:Game;
     public var menu:Menu;
-
     var musicChannel:SoundChannel;  
 
 
@@ -41,6 +40,7 @@ class Root extends Sprite {
 
         // art
         assets.enqueue("assets/loading.png");
+
         assets.enqueue("assets/test_terrain.png");
         assets.enqueue("assets/hillbillypoint.png");
         assets.enqueue("assets/empty.png");
@@ -50,6 +50,8 @@ class Root extends Sprite {
         assets.enqueue("assets/menu.png");
         assets.enqueue("assets/Beginning_level_bg1.png");
         assets.enqueue("assets/Beginning_level_bg2.png");
+        assets.enqueue("assets/fence_ground.png");
+        assets.enqueue("assets/pond_reeds.png");
         // assets.enqueue("assets/Grass_Ground_proto.png");
         assets.enqueue("assets/MidGround_Beg_1.png");
         assets.enqueue("assets/hilbilly1.png");
