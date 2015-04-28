@@ -69,6 +69,7 @@ class Health extends Sprite{
 
 	public function isDead():Bool{
 		if (health <= 0){
+			removeChild(healthText);
 			return true;
 		}
 		else{

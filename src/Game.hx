@@ -6,6 +6,7 @@ import starling.textures.TextureSmoothing;
 import flash.geom.*;
 import flash.media.SoundChannel;
 import flash.ui.Keyboard;
+import starling.text.TextField;
 
 
 class Game extends Sprite{
@@ -15,6 +16,7 @@ class Game extends Sprite{
 	public var player:Player;
 	public var jumpinprogress:Bool = false;
 	public var overlay:Overlay;
+	public var menu:Menu;
 
 	public function new(){
 		super();
@@ -49,9 +51,42 @@ class Game extends Sprite{
 		var collisionY = false;
 		var collisionX = false;
 		var velocity = 0.0;
+		var menuButton:Image;
+		var gameOverText:TextField;
+
 		if (overlay.health.isDead()){
 			//GAMEOVER
 			//trace("Dead");
+			
+			removeChild(terrain);
+			removeChild(player);
+
+
+			gameOverText = new TextField(300,100, "Game Over", "eastwood", 60);
+			gameOverText.x = 175;
+			gameOverText.y = 100;	
+			addChild(gameOverText);
+
+			overlay.score.x = 10;
+			overlay.score.y = 150;
+
+			menuButton = new Image(Root.assets.getTexture("menu_button"));
+			menuButton.x = 420;
+			menuButton.y = 460;
+			addChild(menuButton);
+
+			menuButton.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
+            	var touch = e.getTouch(menuButton, TouchPhase.BEGAN);
+                	if (touch != null){
+                		this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+                		removeChild(menuButton);
+                		removeChild(background);
+                		removeChild(gameOverText);
+                		removeChild(overlay);
+                   		menu = new Menu();
+       					addChild(menu);
+        	}}); 
+
 		}
 		for(terrainBlock in terrain.pieces){
 			if(pBounds.intersects(terrainBlock.bounds)){
