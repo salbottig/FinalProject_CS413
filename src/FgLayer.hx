@@ -11,11 +11,6 @@ class FgLayer extends Sprite{
 	public var image1:Image;
 	public var image2:Image;
 
-	//Placeholders
-	// public var image3:Image;
-	// public var image4:Image;
-	//end Placeholder
-
 	public var parallax:Float;
 
 	public function new(){
@@ -28,15 +23,6 @@ class FgLayer extends Sprite{
 		image1 = new Image(Root.assets.getTexture("fence_ground"));
 		image2 = new Image(Root.assets.getTexture("fence_ground"));
 
-		//Placeholder
-		// image3 = new Image(Root.assets.getTexture("MidGround_Beg_1"));
-		// image4 = new Image(Root.assets.getTexture("MidGround_Beg_1"));
-
-		// image3.y = 0;
-		// image4.x = image4.width;
-		// image4.y = 0;
-		//end Placeholder
-
 		image1.x = 0;
 		image1.y = 536;
 		image2.y = 536;
@@ -44,10 +30,5 @@ class FgLayer extends Sprite{
 
 		addChild(image1);
 		addChild(image2);
-
-		//Placeholders
-		// addChild(image3);
-		// addChild(image4);
-		//end Placeholder
 	}
 }
