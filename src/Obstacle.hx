@@ -10,7 +10,7 @@ import Root;
 class Obstacle extends Image{
 	private var active:Bool=false;
 	private var type:String;
-	private var velocity:Int;
+	private var velocity:Float;
 
 	public function new(){
 		super(Root.assets.getTexture("rock"));
@@ -28,7 +28,7 @@ class Obstacle extends Image{
 		this.type = type;
 		this.x = sTBlock.x;
 		this.y = sTBlock.y - this.height;
-		this.velocity = sTBlock.getVelocity();
+		this.velocity = 10;
 
 		this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 	}
@@ -46,5 +46,8 @@ class Obstacle extends Image{
 	public function onEnterFrame(event:Event){
 		this.x -= velocity;
 		if(this.x < -this.width) setNotActive();
+	}
+	public function setSpeed(newSpeed:Float){
+		this.velocity = newSpeed;
 	}
 }

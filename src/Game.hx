@@ -52,6 +52,10 @@ class Game extends Sprite{
 		var collisionY = false;
 		var collisionX = false;
 		var velocity = 0.0;
+		background.speed = (10*overlay.health.health);
+		for (obstacle in terrain.obstacles){
+			obstacle.setSpeed(background.speed*background.layer.parallax);
+		}
 		if (overlay.health.isDead()){
 			//GAMEOVER
 			//trace("Dead");
