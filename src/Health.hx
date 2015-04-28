@@ -61,7 +61,7 @@ class Health extends Sprite{
 	}
 
 	public function addHealth(){
-		if (health < 3) health++;
+		if (health < 5) health++;
 		//trace(health);
 		update();
 		

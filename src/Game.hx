@@ -23,8 +23,18 @@ class Game extends Sprite{
 		this.addChild(background);
 		terrain = new Terrain();
 		this.addChild(terrain);
+
+		// Chris is testing backgrounds here
+		// var layers:Array<BackgroundLayer> = new Array();
+		//higher int, faster scrolling
+		// layers.push(new BackgroundLayer(assets.getTexture("pond_reeds"), 2, false));
+		// layers.push(new BackgroundLayer(assets.getTexture("fence_ground"), 5, false));
+		// var fieldBG = new LevelBackground(layers);
+		// addChild(fieldBG);
+
 		player = new Player();
-		player.x = Root.source.stage.stageWidth/2;
+		player.x = (Root.source.stage.stageWidth-player.width)/2;
+		player.y = 400;
 		this.addChild(player);
 		overlay = new Overlay();
 		this.addChild(overlay);
@@ -34,14 +44,14 @@ class Game extends Sprite{
 	}
 
 	public function onEnterFrame(event:Event){
-		overlay.score.addPoints(1*(1+overlay.health.health));
+		overlay.score.addPoints(1*overlay.health.health);
 		var pBounds = player.bounds;
 		var collisionY = false;
 		var collisionX = false;
 		var velocity = 0.0;
 		if (overlay.health.isDead()){
 			//GAMEOVER
-			trace("Dead");
+			//trace("Dead");
 		}
 		for(terrainBlock in terrain.pieces){
 			if(pBounds.intersects(terrainBlock.bounds)){
@@ -59,23 +69,15 @@ class Game extends Sprite{
 		}
 		for(obstacle in terrain.obstacles){
 			if(pBounds.intersects(obstacle.bounds)){
-				if(obstacle.getType()=='hilbilly1'){
+				trace(obstacle.bounds);
+				if(obstacle.getType()=='hilbilly1' && obstacle.getActive()){
 					obstacle.setNotActive();
 					this.overlay.health.addHealth();
+
 				}
-				else{
+				else if (obstacle.getType()!='hilbilly1' && obstacle.getActive()){
 					this.overlay.health.loseHealth();
-					// losing health needs tweaking so we don't instantly die, check to see how long ago our last collision was? if same object?
-					if(player.y +player.height <= obstacle.y + 5){
-						if(!jumpinprogress){
-							player.jumping = false;
-						}
-						collisionY = true;
-					}
-					if(player.x + player.width < obstacle.x+5 && player.y + player.height >= obstacle.y+5){
-						collisionX = true;
-						velocity = obstacle.getVelocity();
-					}
+					obstacle.setNotActive();
 				}
 			}
 		}
@@ -107,9 +109,9 @@ class Game extends Sprite{
 			if(!player.jumping){
 				player.jumping = true;
 				jumpinprogress = true;
-				var playerY = player.y - 112;
-				var playerX = player.x + 64;
-				Starling.juggler.tween(player, .75, {
+				var playerY = player.y - 180;
+				var playerX = player.x;
+				Starling.juggler.tween(player, 1.5,	 {
                                         transition: Transitions.EASE_OUT,
                                         y: playerY,
                                         x: playerX,
