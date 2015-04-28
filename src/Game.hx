@@ -53,9 +53,17 @@ class Game extends Sprite{
 		var collisionY = false;
 		var collisionX = false;
 		var velocity = 0.0;
-		background.speed = (10*overlay.health.health);
+		background.speedBack = (10*overlay.health.health);
 		for (obstacle in terrain.obstacles){
-			obstacle.setSpeed(background.speed*background.layer.parallax);
+			obstacle.setSpeed(background.speedBack*background.layer.parallax);
+		}
+		background.speedMid = (10*overlay.health.health);
+		for (obstacle in terrain.obstacles){
+			obstacle.setSpeed(background.speedMid*background.midLayer.parallax);
+		}
+		foreground.speed = (10*overlay.health.health);
+		for (obstacle in terrain.obstacles){
+			obstacle.setSpeed(foreground.speed*foreground.layer.parallax);
 		}
 		if (overlay.health.isDead()){
 			//GAMEOVER

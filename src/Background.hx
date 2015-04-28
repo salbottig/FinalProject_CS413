@@ -27,7 +27,7 @@ class Background extends Sprite{
 		this.addChild(layer);
 
 		midLayer = new BgLayer("MidGround_Beg_1");
-		midLayer.parallax = 2;
+		midLayer.parallax = .3;
 		this.addChild(midLayer);
 
 		this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
