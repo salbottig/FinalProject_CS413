@@ -124,12 +124,12 @@ class Game extends Sprite{
 		}
 		for(obstacle in terrain.obstacles){
 			if(pBounds.intersects(obstacle.bounds)){
-				if(obstacle.getType()=='hilbilly1' && obstacle.getActive()){
+				if(obstacle.getType()=='hillbilly' && obstacle.getActive()){
 					obstacle.setNotActive();
 					this.overlay.health.addHealth();
 
 				}
-				else if (obstacle.getType()!='hilbilly1' && obstacle.getActive()){
+				else if (obstacle.getType()!='hillbilly' && obstacle.getActive()){
 					this.overlay.health.loseHealth();
 					obstacle.setNotActive();
 				}
@@ -147,12 +147,13 @@ class Game extends Sprite{
 		var t = Math.floor(Math.random()*((900-Math.floor(this.overlay.score.score/1000))+100) );
 		if(t==50){ 
 			var t = Math.ceil(Math.random()*6);
+			trace(t);
 			switch(t){
 				case 1: terrain.obstacleQ.add("hay");
 				case 2: terrain.obstacleQ.add("stump");
 				case 3: terrain.obstacleQ.add("tire");
 				case 4: terrain.obstacleQ.add("squirrel");
-				case 5: terrain.obstacleQ.add("hilbilly1");
+				case 5: terrain.obstacleQ.add("hillbilly");
 				default: terrain.obstacleQ.add("rock");
 			}
 		}

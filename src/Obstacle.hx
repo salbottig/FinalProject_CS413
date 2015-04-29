@@ -22,7 +22,14 @@ class Obstacle extends Image{
 	public function getVelocity(){return this.velocity;}
 
 	public function setActive(type:String, sTBlock:TerrainBlock, img_loc:String=''){
-		this.texture = Root.assets.getTexture( (img_loc!='')?img_loc:type );
+		if(type == "hillbilly"){
+			var rng = 1+Math.round(2*Math.random());
+			trace("hillbilly_"+rng);
+			this.texture = Root.assets.getTexture("hillbilly_"+rng);	
+		}
+		else{
+			this.texture = Root.assets.getTexture( (img_loc!='')?img_loc:type );
+		}
 		this.readjustSize();
 		this.active = true;
 		this.type = type;
