@@ -43,6 +43,9 @@ class Root extends Sprite {
 
         assets.enqueue("assets/test_terrain.png");
         assets.enqueue("assets/hillbillypoint.png");
+        assets.enqueue("assets/hillbilly_1.png");
+        assets.enqueue("assets/hillbilly_2.png");
+        assets.enqueue("assets/hillbilly_3.png");
         assets.enqueue("assets/empty.png");
         assets.enqueue("assets/play_button.png");
         assets.enqueue("assets/tutorial_button.png");
