@@ -21,7 +21,6 @@ class Menu extends Sprite{
 	public var game:Game;
 
 	public var menuBG:Image;
-
 	public var play:Image;
 	public var credits:Image;
 	public var tutorial:Image;
@@ -29,8 +28,8 @@ class Menu extends Sprite{
 	public var titleText:TextField;
 	public var creditText:TextField;
 	public var tutorialText:TextField;
-
 	public var names:TextField;
+	public var instructions:TextField;
 
 
 	public function new() {
@@ -83,6 +82,10 @@ class Menu extends Sprite{
 		names.x = 50;
 		names.y = 10;
 
+		instructions = new TextField(500,500, "Guide HillBilly over the obstacles with the space bar. Collect other HillBilly's to obtain lives.", "eastwood", 25);
+		instructions.x = 70;
+		instructions.y = 25;
+
 		play.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
             var touch = e.getTouch(play, TouchPhase.BEGAN);
                 if (touch != null){
@@ -96,6 +99,7 @@ class Menu extends Sprite{
                    	removeChild(credits);
                    	removeChild(titleText);
                    	removeChild(tutorialText);
+                   	removeChild(instructions);
                    	addChild(tutorial);
                    	addChild(creditText);
                    	play.x = 500;
@@ -114,6 +118,7 @@ class Menu extends Sprite{
                    	removeChild(names);
                    	addChild(tutorialText);
                    	addChild(credits);
+                   	addChild(instructions);
                    	play.x = 500;
                    	play.y = 500;
                    	credits.x = 50;
