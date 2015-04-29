@@ -43,35 +43,32 @@ class Menu extends Sprite{
 		addChild(menuBG);
 
 
-		titleText = new TextField(300,100, "Game Title", "eastwood", 55);
-		titleText.x = 175;
-		titleText.y = 10;
-		titleText.color = 0xFFFFFF;		
+		titleText = new TextField(500,100, "HillBilly Highway", "eastwood", 55);
+		titleText.x = 80;
+		titleText.y = 225;	
 		addChild(titleText);
 
 		creditText = new TextField(300,100, "Credits", "eastwood", 55);
 		creditText.x = 175;
 		creditText.y = 10;
-		creditText.color = 0xFFFFFF;
 
 		tutorialText = new TextField(325,100, "How To Play", "eastwood", 55);
 		tutorialText.x = 175;
 		tutorialText.y = 10;
-		tutorialText.color = 0xFFFFFF;	
 
 		play = new Image(Root.assets.getTexture("play_button"));
 		play.x = 270;
-		play.y = 420;
+		play.y = 325;
 		addChild(play);
 
 		credits = new Image(Root.assets.getTexture("credits_button"));
 		credits.x = 120;
-		credits.y = 420;
+		credits.y = 325;
 		addChild(credits);
 
 		tutorial = new Image(Root.assets.getTexture("tutorial_button"));
 		tutorial.x = 420;
-		tutorial.y = 420;
+		tutorial.y = 325;
 		addChild(tutorial);
 
 		play.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
