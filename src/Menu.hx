@@ -30,7 +30,7 @@ class Menu extends Sprite{
 	public var creditText:TextField;
 	public var tutorialText:TextField;
 
-	public var instructions:TextField;
+	public var names:TextField;
 
 
 	public function new() {
@@ -73,15 +73,15 @@ class Menu extends Sprite{
 		tutorial.y = 325;
 		addChild(tutorial);
 
-		instructions = new TextField(500,500, "
+		names = new TextField(500,500, "
 											   Anthony Black
 											   Christopher Heiser
 											   Erin Bailey
 											   Salvatore Bottiglieri
 											   Tanner Stevens
 											   Veronika Alves","eastwood", 30);
-		instructions.x = 50;
-		instructions.y = 10;
+		names.x = 50;
+		names.y = 10;
 
 		play.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
             var touch = e.getTouch(play, TouchPhase.BEGAN);
@@ -102,7 +102,7 @@ class Menu extends Sprite{
                    	play.y = 500;
                    	tutorial.x = 50;
                    	tutorial.y = 500;
-                   	addChild(instructions);
+                   	addChild(names);
         }});  
 
         tutorial.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
@@ -111,7 +111,7 @@ class Menu extends Sprite{
                    	removeChild(tutorial);
                    	removeChild(creditText);
                    	removeChild(titleText);
-                   	removeChild(instructions);
+                   	removeChild(names);
                    	addChild(tutorialText);
                    	addChild(credits);
                    	play.x = 500;
