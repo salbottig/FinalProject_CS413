@@ -41,4 +41,8 @@ class Player extends Sprite{
 		}
 		time = time + 1;
 	}
+	public function cleanup(){
+		this.removeChildren();
+		this.removeEventListeners();
+	}
 }

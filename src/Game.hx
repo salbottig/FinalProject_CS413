@@ -97,12 +97,7 @@ class Game extends Sprite{
 			menuButton.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
             	var touch = e.getTouch(menuButton, TouchPhase.BEGAN);
                 	if (touch != null){
-                		this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
-                		removeChild(menuButton);
-                		removeChild(background);
-                		removeChild(foreground);
-                		removeChild(gameOverText);
-                		removeChild(overlay);
+                		cleanup();
                    		menu = new Menu();
        					addChild(menu);
         	}}); 
@@ -147,7 +142,6 @@ class Game extends Sprite{
 		var t = Math.floor(Math.random()*((900-Math.floor(this.overlay.score.score/1000))+100) );
 		if(t==50){ 
 			var t = Math.ceil(Math.random()*6);
-			trace(t);
 			switch(t){
 				case 1: terrain.obstacleQ.add("hay");
 				case 2: terrain.obstacleQ.add("stump");
@@ -174,5 +168,14 @@ class Game extends Sprite{
                                         });
 			}
 		}
+	}
+	public function cleanup(){
+		background.cleanup();
+		terrain.cleanup();
+		player.cleanup();
+		foreground.cleanup();
+		overlay.cleanup();
+		this.removeChildren();
+		this.removeEventListeners();
 	}
 }

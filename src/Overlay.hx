@@ -15,4 +15,8 @@ class Overlay extends Sprite{
 		addChild(health);
 		health.start();
 	}
+	public function cleanup(){
+		this.removeChildren();
+		this.removeEventListeners();
+	}
 }
