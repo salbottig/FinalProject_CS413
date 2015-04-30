@@ -144,8 +144,8 @@ class Game extends Sprite{
 			player.x += ((stage.stageWidth-player.width)/2 -player.x)/60;
 		}
 
-		var t = Math.floor(Math.random()*((900-Math.floor(this.overlay.score.score/1000))+100) );
-		if(t==50){ 
+		var t = Math.floor(Math.random()*((900-Math.floor(this.overlay.score.score/500))+100) );
+		if(t<=50 && t >= 46){ 
 			var t = Math.ceil(Math.random()*6);
 			trace(t);
 			switch(t){
@@ -166,7 +166,7 @@ class Game extends Sprite{
 				jumpinprogress = true;
 				var playerY = player.y - 190;
 				var playerX = player.x + 15;
-				Starling.juggler.tween(player, 1.5,	 {
+				Starling.juggler.tween(player, .75,	 {
                                         transition: Transitions.LINEAR,
                                         y: playerY,
                                         x: playerX,
