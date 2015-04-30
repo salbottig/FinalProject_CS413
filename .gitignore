@@ -36,3 +36,13 @@ assets/music/final_project.band/Media/Audio Files/Peach Cobbler.caf
 assets/music/final_project.band/Alternatives/000/WindowImage.jpg
 
 assets/backgrounds.sketch.sb-3b54a646-2HNTuu
+
+*.sketch
+
+assets/final_project.band/Alternatives/000/Autosave/.dummy
+
+*.plist
+
+assets/final_project.band/Alternatives/000/ProjectData
+
+assets/final_project.band/Alternatives/000/WindowImage.jpg
