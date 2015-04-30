@@ -1,0 +1,14 @@
+{
+  "name": "Hillbilly Highway",
+  "description": "Find some friends on the Hillbilly Highway",
+  "version": "1",
+  "app": {
+    "launch": {
+      "local_path": "index.html"
+    }
+  },
+  "icons": {
+    "24": "assets/icon_24.png",
+    "128": "assets/icon_128.png"
+  }
+}

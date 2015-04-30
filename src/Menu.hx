@@ -21,6 +21,7 @@ class Menu extends Sprite{
 	public var game:Game;
 
 	public var menuBG:Image;
+
 	public var play:Image;
 	public var credits:Image;
 	public var tutorial:Image;
@@ -28,8 +29,6 @@ class Menu extends Sprite{
 	public var titleText:TextField;
 	public var creditText:TextField;
 	public var tutorialText:TextField;
-	public var names:TextField;
-	public var instructions:TextField;
 
 
 	public function new() {
@@ -44,47 +43,36 @@ class Menu extends Sprite{
 		addChild(menuBG);
 
 
-		titleText = new TextField(500,100, "HillBilly Highway", "eastwood", 55);
-		titleText.x = 80;
-		titleText.y = 225;	
+		titleText = new TextField(300,300, "HillBilly \nHighway", "eastwood", 55);
+		titleText.x = 175;
+		titleText.y = 10;
+		titleText.color = 0xFFFFFF;		
 		addChild(titleText);
 
 		creditText = new TextField(300,100, "Credits", "eastwood", 55);
-		creditText.x = 165;
+		creditText.x = 175;
 		creditText.y = 10;
+		creditText.color = 0xFFFFFF;
 
 		tutorialText = new TextField(325,100, "How To Play", "eastwood", 55);
-		tutorialText.x = 165;
+		tutorialText.x = 175;
 		tutorialText.y = 10;
+		tutorialText.color = 0xFFFFFF;	
 
 		play = new Image(Root.assets.getTexture("play_button"));
 		play.x = 270;
-		play.y = 325;
+		play.y = 420;
 		addChild(play);
 
 		credits = new Image(Root.assets.getTexture("credits_button"));
 		credits.x = 120;
-		credits.y = 325;
+		credits.y = 420;
 		addChild(credits);
 
 		tutorial = new Image(Root.assets.getTexture("tutorial_button"));
 		tutorial.x = 420;
-		tutorial.y = 325;
+		tutorial.y = 420;
 		addChild(tutorial);
-
-		names = new TextField(500,500, "
-											   Anthony Black
-											   Christopher Heiser
-											   Erin Bailey
-											   Salvatore Bottiglieri
-											   Tanner Stevens
-											   Veronika Alves","eastwood", 30);
-		names.x = 50;
-		names.y = 10;
-
-		instructions = new TextField(500,500, "Guide HillBilly over the obstacles with the space bar. Collect other HillBilly's to obtain lives.", "eastwood", 25);
-		instructions.x = 70;
-		instructions.y = 25;
 
 		play.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
             var touch = e.getTouch(play, TouchPhase.BEGAN);
@@ -99,14 +87,12 @@ class Menu extends Sprite{
                    	removeChild(credits);
                    	removeChild(titleText);
                    	removeChild(tutorialText);
-                   	removeChild(instructions);
                    	addChild(tutorial);
                    	addChild(creditText);
                    	play.x = 500;
                    	play.y = 500;
                    	tutorial.x = 50;
                    	tutorial.y = 500;
-                   	addChild(names);
         }});  
 
         tutorial.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
@@ -115,10 +101,8 @@ class Menu extends Sprite{
                    	removeChild(tutorial);
                    	removeChild(creditText);
                    	removeChild(titleText);
-                   	removeChild(names);
                    	addChild(tutorialText);
                    	addChild(credits);
-                   	addChild(instructions);
                    	play.x = 500;
                    	play.y = 500;
                    	credits.x = 50;

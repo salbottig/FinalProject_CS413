@@ -32,4 +32,8 @@ class Foreground extends Sprite{
 		layer.x -= Math.ceil(speed*layer.parallax);
 		if(layer.x < -stage.stageWidth) layer.x = 0;
 	}
+	public function cleanup(){
+		this.removeChildren();
+		this.removeEventListeners();
+	}
 }
