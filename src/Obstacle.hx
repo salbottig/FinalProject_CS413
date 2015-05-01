@@ -24,7 +24,6 @@ class Obstacle extends Image{
 	public function setActive(type:String, sTBlock:TerrainBlock, img_loc:String=''){
 		if(type == "hillbilly"){
 			var rng = 1+Math.round(2*Math.random());
-			trace("hillbilly_"+rng);
 			this.texture = Root.assets.getTexture("hillbilly_"+rng);	
 		}
 		else{

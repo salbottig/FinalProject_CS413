@@ -39,4 +39,9 @@ class Background extends Sprite{
 		midLayer.x -= Math.ceil(speedMid*midLayer.parallax);
 		if(midLayer.x < -2*stage.stageWidth) midLayer.x = 0;
 	}
+
+	public function cleanup(){
+		this.removeChildren();
+		this.removeEventListeners();
+	}
 }

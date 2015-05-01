@@ -97,12 +97,7 @@ class Game extends Sprite{
 			menuButton.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
             	var touch = e.getTouch(menuButton, TouchPhase.BEGAN);
                 	if (touch != null){
-                		this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
-                		removeChild(menuButton);
-                		removeChild(background);
-                		removeChild(foreground);
-                		removeChild(gameOverText);
-                		removeChild(overlay);
+                		cleanup();
                    		menu = new Menu();
        					addChild(menu);
         	}}); 
@@ -173,5 +168,14 @@ class Game extends Sprite{
                                         });
 			}
 		}
+	}
+	public function cleanup(){
+		background.cleanup();
+		terrain.cleanup();
+		player.cleanup();
+		foreground.cleanup();
+		overlay.cleanup();
+		this.removeChildren();
+		this.removeEventListeners();
 	}
 }

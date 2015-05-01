@@ -60,4 +60,9 @@ class Terrain extends Sprite{
 			if(!obstacle.getActive()){obstacle.setActive(type, tBlock);break;}
 		}
 	}
+
+	public function cleanup(){
+		this.removeChildren();
+		this.removeEventListeners();
+	}
 }
