@@ -131,7 +131,7 @@ class Game extends Sprite{
 			}
 		}
 		if(!collisionY && !jumpinprogress){
-			player.y+=2;
+			player.y+=3;
 			player.jumping = true;
 		}
 		if(collisionX)player.x-= velocity;
@@ -158,9 +158,9 @@ class Game extends Sprite{
 			if(!player.jumping){
 				player.jumping = true;
 				jumpinprogress = true;
-				var playerY = player.y - 190;
+				var playerY = player.y - 150;
 				var playerX = player.x + 15;
-				Starling.juggler.tween(player, 1.5,	 {
+				Starling.juggler.tween(player, 1,	 {
                                         transition: Transitions.LINEAR,
                                         y: playerY,
                                         x: playerX,

@@ -15,6 +15,8 @@ class Background extends Sprite{
 	public var speedBack:Float = 0;
 	public var speedMid:Float = 0;
 
+	public var GrantCount:Float = 0;
+
 	public function new(){
 		super();
 		this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
@@ -34,8 +36,22 @@ class Background extends Sprite{
 	}
 
 	public function onEnterFrame(event:Event){
+		if (GrantCount / 10 == 1) {
+			this.removeChild(layer);
+			layer = new BgLayer("scene3_background");
+			layer.parallax = .1;
+			this.addChild(layer);
+
+			this.removeChild(midLayer);
+			midLayer = new BgLayer("MidGround_Beg_1");
+			midLayer.parallax = .2;
+			this.addChild(midLayer);
+		}
 		layer.x -= Math.ceil(speedBack*layer.parallax);
-		if(layer.x < -2*stage.stageWidth) layer.x = 0;
+		if(layer.x < -2*stage.stageWidth) {
+			layer.x = 0;
+			GrantCount = GrantCount + 1;
+		}
 		midLayer.x -= Math.ceil(speedMid*midLayer.parallax);
 		if(midLayer.x < -2*stage.stageWidth) midLayer.x = 0;
 	}

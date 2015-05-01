@@ -28,16 +28,23 @@ class Player extends Sprite{
 	}
 
 	public function walk() {
-		if (time > 15) {
+		if (jumping == true) {
 			removeChild(playerImage);
 			playerImage = new Image(Root.assets.getTexture("hilbilly1walk2"));
 			addChild(playerImage);
 		}
-		if (time > 30) {
-			removeChild(playerImage);
-			playerImage = new Image(Root.assets.getTexture("hilbilly1walk1"));
-			addChild(playerImage);
-			time = 0;
+		else {
+			if (time > 15) {
+				removeChild(playerImage);
+				playerImage = new Image(Root.assets.getTexture("hilbilly1walk2"));
+				addChild(playerImage);
+			}
+			if (time > 30) {
+				removeChild(playerImage);
+				playerImage = new Image(Root.assets.getTexture("hilbilly1walk1"));
+				addChild(playerImage);
+				time = 0;
+			}
 		}
 		time = time + 1;
 	}
