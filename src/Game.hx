@@ -145,9 +145,8 @@ class Game extends Sprite{
 		}
 
 		var t = Math.floor(Math.random()*((900-Math.floor(this.overlay.score.score/1000))+100) );
-		if(t==50){ 
+		if(t<=50 && t>=47){ 
 			var t = Math.ceil(Math.random()*6);
-			trace(t);
 			switch(t){
 				case 1: terrain.obstacleQ.add("hay");
 				case 2: terrain.obstacleQ.add("stump");
