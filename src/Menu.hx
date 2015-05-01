@@ -46,7 +46,7 @@ class Menu extends Sprite{
 		titleText = new TextField(300,300, "HillBilly \nHighway", "eastwood", 55);
 		titleText.x = 175;
 		titleText.y = 10;
-		titleText.color = 0xFFFFFF;		
+		titleText.color = 0x000000;		
 		addChild(titleText);
 
 		creditText = new TextField(300,100, "Credits", "eastwood", 55);
