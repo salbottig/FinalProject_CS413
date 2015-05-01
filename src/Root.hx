@@ -49,6 +49,9 @@ class Root extends Sprite {
         assets.enqueue("assets/empty.png");
         assets.enqueue("assets/play_button.png");
         assets.enqueue("assets/tutorial_button.png");
+        assets.enqueue("assets/title_text.png");
+        assets.enqueue("assets/tutorial.png");
+        assets.enqueue("assets/credits.png");        
         assets.enqueue("assets/credits_button.png");
         assets.enqueue("assets/menu_button.png");
         assets.enqueue("assets/menu.png");
@@ -65,6 +68,7 @@ class Root extends Sprite {
         assets.enqueue("assets/stump.png");
         assets.enqueue("assets/tire.png");
         assets.enqueue("assets/hay.png");
+        assets.enqueue("assets/main_button.png");
         assets.loadQueue(function onProgress(ratio:Float) {
             if(ratio == 1) {
                 musicChannel = assets.playSound("track1");

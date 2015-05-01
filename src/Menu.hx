@@ -25,6 +25,11 @@ class Menu extends Sprite{
 	public var play:Image;
 	public var credits:Image;
 	public var tutorial:Image;
+	public var mainMenu:Image;
+	public var credits_desc:Image;
+	public var tutorial_desc:Image;
+	public var title:Image;
+
 
 	public var titleText:TextField;
 	public var creditText:TextField;
@@ -39,25 +44,32 @@ class Menu extends Sprite{
 	public function onAddedToStage(event:Event){
 		this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 
+		credits_desc = new Image(Root.assets.getTexture("credits"));
+		tutorial_desc = new Image(Root.assets.getTexture("tutorial"));
+		mainMenu = new Image(Root.assets.getTexture("main_button"));
+
 		menuBG = new Image(Root.assets.getTexture("menu"));
 		addChild(menuBG);
 
 
-		titleText = new TextField(300,300, "HillBilly \nHighway", "eastwood", 55);
-		titleText.x = 175;
-		titleText.y = 10;
-		titleText.color = 0x000000;		
-		addChild(titleText);
+		// titleText = new TextField(300,300, "HillBilly \nHighway", "eastwood", 55, 0x000000);
+		// titleText.x = 175;
+		// titleText.y = 10;
+		// titleText.color = 0x000000;	
+		title = new Image(Root.assets.getTexture("title_text"));
+		title.x = 175;
+		title.y = 80;
+		addChild(title);
 
-		creditText = new TextField(300,100, "Credits", "eastwood", 55);
-		creditText.x = 175;
-		creditText.y = 10;
-		creditText.color = 0xFFFFFF;
+		// creditText = new TextField(300,100, "Credits", "eastwood", 55);
+		// creditText.x = 175;
+		// creditText.y = 10;
+		// creditText.color = 0x000000;
 
-		tutorialText = new TextField(325,100, "How To Play", "eastwood", 55);
-		tutorialText.x = 175;
-		tutorialText.y = 10;
-		tutorialText.color = 0xFFFFFF;	
+		// tutorialText = new TextField(325,100, "How To Play", "eastwood", 55);
+		// tutorialText.x = 150;
+		// tutorialText.y = 10;
+		// tutorialText.color = 0x000000;	
 
 		play = new Image(Root.assets.getTexture("play_button"));
 		play.x = 270;
@@ -74,6 +86,7 @@ class Menu extends Sprite{
 		tutorial.y = 420;
 		addChild(tutorial);
 
+
 		play.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
             var touch = e.getTouch(play, TouchPhase.BEGAN);
                 if (touch != null){
@@ -85,28 +98,59 @@ class Menu extends Sprite{
             var touch = e.getTouch(credits, TouchPhase.BEGAN);
                 if (touch != null){
                    	removeChild(credits);
-                   	removeChild(titleText);
-                   	removeChild(tutorialText);
+                   	removeChild(title);
+                   	removeChild(tutorial_desc);
+                   	addChild(credits_desc);
                    	addChild(tutorial);
-                   	addChild(creditText);
-                   	play.x = 500;
-                   	play.y = 500;
-                   	tutorial.x = 50;
-                   	tutorial.y = 500;
+                   	addChild(mainMenu);
+                   	addChild(play);
+                   	credits_desc.x = 190;
+                   	credits_desc.y = 50;
+                   	play.x = 270;
+                   	play.y = 420;
+                   	mainMenu.x = 420;
+                   	mainMenu.y = 420;
+                   	tutorial.x = 120;
+                   	tutorial.y = 420;
         }});  
 
         tutorial.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
             var touch = e.getTouch(tutorial, TouchPhase.BEGAN);
                 if (touch != null){
+                	removeChild(title);
+                	removeChild(credits_desc);
                    	removeChild(tutorial);
-                   	removeChild(creditText);
                    	removeChild(titleText);
-                   	addChild(tutorialText);
+                   	addChild(play);
                    	addChild(credits);
-                   	play.x = 500;
-                   	play.y = 500;
-                   	credits.x = 50;
-                   	credits.y = 500;
+                   	addChild(mainMenu);
+                   	addChild(tutorial_desc);
+                   	tutorial_desc.x = 20;
+                   	tutorial_desc.y = 110;
+                   	play.x = 270;
+                   	play.y = 420;
+                   	mainMenu.x = 420;
+                   	mainMenu.y = 420;
+                   	credits.x = 120;
+                   	credits.y = 420;
+        }}); 
+
+        mainMenu.addEventListener(TouchEvent.TOUCH, function(e:TouchEvent){
+            var touch = e.getTouch(mainMenu, TouchPhase.BEGAN);
+                if (touch != null){
+                   	removeChild(mainMenu);
+                   	removeChild(credits_desc);
+                   	removeChild(tutorial_desc);
+                   	addChild(title);
+                   	addChild(tutorial);
+                   	addChild(credits);
+                   	addChild(play);
+                   	tutorial.x = 420;
+                   	tutorial.y = 420;
+                   	play.x = 270;
+                   	play.y = 420;
+                   	credits.x = 120;
+                   	credits.y = 420;
         }}); 
 
 	}
