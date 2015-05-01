@@ -10,9 +10,7 @@ import flash.ui.Keyboard;
 import flash.media.SoundChannel;
 
 import Game;
-
 class Root extends Sprite {
-
     public static var source:Root;
     public static var assets:AssetManager;
     public var game:Game;
@@ -30,8 +28,8 @@ class Root extends Sprite {
 
         // enqueue here
         // fonts
-        assets.enqueue("assets/fonts/eastwood.png");
-        assets.enqueue("assets/fonts/eastwood.fnt");
+        assets.enqueue("assets/gamefonts/eastwood.png");
+        assets.enqueue("assets/gamefonts/eastwood.xml");
         // sounds
         assets.enqueue("assets/sounds/track1.mp3");
 

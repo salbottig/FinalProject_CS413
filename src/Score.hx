@@ -1,5 +1,5 @@
 import starling.display.*;
-import starling.text.TextField;
+import starling.text.*;
 import starling.core.Starling;
 import starling.utils.*;
 import starling.events.*;
