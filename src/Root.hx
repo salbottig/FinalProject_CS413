@@ -69,7 +69,7 @@ class Root extends Sprite {
         assets.loadQueue(function onProgress(ratio:Float) {
             if(ratio == 1) {
                 musicChannel = assets.playSound("track1");
-                starling.text.TextField.registerBitmapFont(new BitmapFont(assets.getTexture("eastwood.png"), assets.getXml("eastwood.fnt")), "eastwood");
+                //starling.text.TextField.registerBitmapFont(new BitmapFont(assets.getTexture("eastwood.png"), assets.getXml("eastwood.fnt")), "eastwood");
                 Starling.juggler.tween(startup.loadingBitmap,
                     1.0,
                     {
