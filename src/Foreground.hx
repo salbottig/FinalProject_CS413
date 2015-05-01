@@ -30,7 +30,10 @@ class Foreground extends Sprite{
 
 	public function onEnterFrame(event:Event){
 		layer.x -= Math.ceil(speed*layer.parallax);
-		if(layer.x < -stage.stageWidth) layer.x = 0;
+		if(layer.x < -2*stage.stageWidth) {
+			layer.x = 0;
+			layer.layercount = layer.layercount + 1;
+		}
 	}
 	public function cleanup(){
 		this.removeChildren();

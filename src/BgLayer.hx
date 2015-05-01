@@ -41,7 +41,7 @@ class BgLayer extends Sprite{
 
 	public function onEnterFrame() {
 		// trace(scenecount);
-		if (scenecount / 1 == 1) {
+		if (scenecount / 2 == 1) {
 			removeChild(image1);
 			image1 = new Image(Root.assets.getTexture("scene3_background"));
 			image1.x = 0;
@@ -53,6 +53,23 @@ class BgLayer extends Sprite{
 			removeChild(image3);
 			image3 = new Image(Root.assets.getTexture("scene3_background"));
 			image3.x = image2.width+image3.width-2;
+			addChild(image3);
+		}
+		if (layercount / 2 == 1) {
+			removeChild(image1);
+			image1 = new Image(Root.assets.getTexture("scene3_midground"));
+			image1.x = 0;
+			image1.y = 490;
+			addChild(image1);
+			removeChild(image2);
+			image2 = new Image(Root.assets.getTexture("scene3_midground"));
+			image2.x = image2.width-1;
+			image2.y = 490;
+			addChild(image2);
+			removeChild(image3);
+			image3 = new Image(Root.assets.getTexture("scene3_midground"));
+			image3.x = image2.width+image3.width-2;
+			image3.y = 490;
 			addChild(image3);
 		}
 	}

@@ -39,7 +39,7 @@ class Background extends Sprite{
 		layer.x -= Math.ceil(speedBack*layer.parallax);
 		if(layer.x < -2*stage.stageWidth) {
 			layer.x = 0;
-			layer.scenecount = layer.scenecount + 1;
+			layer.scenecount = layer.scenecount + 2;
 		}
 		midLayer.x -= Math.ceil(speedMid*midLayer.parallax);
 		if(midLayer.x < -2*stage.stageWidth) {
