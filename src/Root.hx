@@ -32,9 +32,6 @@ class Root extends Sprite {
         // fonts
         assets.enqueue("assets/fonts/eastwood.png");
         assets.enqueue("assets/fonts/eastwood.fnt");
-        assets.enqueue("assets/fonts/pixel_cowboy.png");
-        assets.enqueue("assets/fonts/pixel_cowboy.xml");
-
         // sounds
         assets.enqueue("assets/sounds/track1.mp3");
 
