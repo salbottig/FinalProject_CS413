@@ -34,12 +34,12 @@ class Player extends Sprite{
 			addChild(playerImage);
 		}
 		else {
-			if (time > 15) {
+			if (time > 8) {
 				removeChild(playerImage);
 				playerImage = new Image(Root.assets.getTexture("hilbilly1walk2"));
 				addChild(playerImage);
 			}
-			if (time > 30) {
+			if (time > 16) {
 				removeChild(playerImage);
 				playerImage = new Image(Root.assets.getTexture("hilbilly1walk1"));
 				addChild(playerImage);
